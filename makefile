@@ -100,6 +100,10 @@ endif
 # compile tools
 #######################################
 include moveDmp.mk
+export ANT_OPTS=-XX:+IgnoreUnrecognizedVMOptions
+echo $(ANT_OPTS)
+$(info ANT_OPTS is $(ANT_OPTS))
+$(shell echo $$ANT_OPTS)
 COMPILE_TOOLS_CMD=ant -f .$(D)scripts$(D)build_tools.xml $(Q)-DTEST_JDK_HOME=$(TEST_JDK_HOME)$(Q) $(Q)-DTEST_ROOT=$(TEST_ROOT)$(Q) $(Q)-DLIB_DIR=$(LIB_DIR)$(Q)
 
 compileTools:
